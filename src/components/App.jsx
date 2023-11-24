@@ -27,17 +27,21 @@ export class App extends React.Component {
       return;
     }
 
-    this.setContacts(prevState => [...prevState.contacts, contact]);
+    this.setState(prevState => ({
+      contacts: [...prevState.contacts, contact],
+    }));
   };
 
   deleteContact = id => {
     this.setState(prevState => ({
-      contact: prevState.contact.filter(contact => contact.id !== id),
+      contacts: prevState.contacts.filter(contact => contact.id !== id),
     }));
   };
+
   handleFilterChange = filter => {
     this.setState({ filter });
   };
+
   render() {
     const { contacts, filter } = this.state;
     const filteredContacts = contacts.filter(contact =>
