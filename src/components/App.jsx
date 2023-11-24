@@ -18,7 +18,7 @@ export class App extends React.Component {
   }
 
   addContact = contact => {
-    const isContactExists = this.contacts.some(
+    const isContactExists = this.state.contacts.some(
       c => c.name.toLowerCase() === contact.name.toLowerCase()
     );
 
